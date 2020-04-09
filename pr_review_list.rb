@@ -4,6 +4,7 @@
 require 'erb'
 require 'optparse'
 require_relative 'octokit_utils'
+require 'pry'
 
 options = {}
 options[:oauth] = ENV['GITHUB_COMMUNITY_TOKEN'] if ENV['GITHUB_COMMUNITY_TOKEN']
@@ -29,6 +30,8 @@ util = OctokitUtils.new(options[:oauth])
 parsed = util.load_module_list(options[:file])
 
 open_prs = []
+no_activity_60 = []
+no_activity_90 = []
 
 def does_array_have_pr(array, pr_number)
   found = false
@@ -88,18 +91,30 @@ parsed.each do |m|
     # last comment mentions puppet member
     row[:last_comment_mentions_puppet] = does_array_have_pr(mentioned_pulls, pr[:pull].number)
 
+    if row[:age_comment] > 60 && row[:age_comment] < 90
+      puts row[:repo]
+      no_activity_60.push(row)
+      #  binding.pry
+    end
+
+    no_activity_90.push(row) if row[:age_comment] > 90
+
     open_prs.push(row)
   end
 end
 
 html = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
-
-open_prs.each do |row|
-  puts(row)
-end
+html_60 = ERB.new(File.read('60_days.html.erb')).result(binding)
+html_90 = ERB.new(File.read('90_days.html.erb')).result(binding)
 
 File.open('report.html', 'wb') do |f|
   f.puts(html)
+end
+File.open('report_60.html', 'wb') do |f|
+  f.puts(html_60)
+end
+File.open('report_90.html', 'wb') do |f|
+  f.puts(html_90)
 end
 
 File.open('report.json', 'wb') do |f|

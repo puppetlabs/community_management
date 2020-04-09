@@ -37,19 +37,19 @@
 } );
 </script>
 <style>
-   .button {
-         background-color: #ddd;
-         border: none;
-         color: white;
-         padding: 10px 20px;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 20px;
-         margin: 4px 2px;
-         cursor: pointer;
-         }
+  .btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
 
+.btn:hover {background: #eee;}
+
+.days_60 {color: green;}
+.days_90 {color: dodgerblue;}
 #reviews {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
    font-size: 18px;
@@ -85,19 +85,17 @@
 </style>
 </head>
 <body>
-<h1>PRs that require review</h1>
- <a href="https://puppetlabs.github.io/community_management/report_60.html" class="button">60 Days</a>
- <a href="https://puppetlabs.github.io/community_management/report_90.html" class="button">90 Days</a>
+<h1>PRs with no activity 90 days</h1>
 <table border='1' id='reviews' style='width:100%' class='sortable table table-hover'> 
 <tr>
-<% open_prs.first.keys.each do |header| %>
+<% no_activity_60.first.keys.each do |header| %>
   <% if header != :address %>
     <td> <%= header %></td> 
   <% end %> 
 <% end %>
 </tr>
 
-<% open_prs.each do |row| %>
+<% no_activity_90.each do |row| %>
   <tr>
   <% row.each do |key, value| %>
   <%  if key == :pr %>
