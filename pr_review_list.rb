@@ -91,9 +91,7 @@ parsed.each do |m|
     row[:last_comment_mentions_puppet] = does_array_have_pr(mentioned_pulls, pr[:pull].number)
 
     if row[:age_comment] > 60 && row[:age_comment] < 90
-      puts row[:repo]
       no_activity_60.push(row)
-      #  binding.pry
     end
 
     no_activity_90.push(row) if row[:age_comment] > 90
