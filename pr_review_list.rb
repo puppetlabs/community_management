@@ -92,11 +92,23 @@ parsed.each do |m|
   end
 end
 
-html = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
+copy_open_prs=[]
+copy_open_prs=open_prs
 
-open_prs.each do |row|
-  puts(row)
+open_prs=copy_open_prs.select { |row| row[:age_comment] > 60 && row[:age_comment] < 90}
+html60 = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
+File.open('report60.html', 'wb') do |f|
+  f.puts(html60)
 end
+
+open_prs=copy_open_prs.select { |row| row[:age_comment] > 90 }
+html90 = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
+File.open('report90.html', 'wb') do |f|
+  f.puts(html90)
+end
+
+open_prs=copy_open_prs
+html = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
 
 File.open('report.html', 'wb') do |f|
   f.puts(html)
