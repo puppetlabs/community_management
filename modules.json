@@ -186,12 +186,6 @@
     "forge_name": "puppetlabs-resource"
   },
   {
-    "repo_name": "puppetlabs-resource_api",
-    "github_namespace": "puppetlabs",
-    "module_name": "resource_api",
-    "forge_name": "puppetlabs-resource_api"
-  },
-  {
     "repo_name": "puppetlabs-rook",
     "github_namespace": "puppetlabs",
     "module_name": "rook",

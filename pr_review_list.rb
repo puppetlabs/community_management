@@ -101,6 +101,12 @@ File.open('report60.html', 'wb') do |f|
   f.puts(html60)
 end
 
+open_prs=copy_open_prs.select { |row| row[:age_comment] > 30 && row[:age_comment] < 60}
+html30 = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
+File.open('report30.html', 'wb') do |f|
+  f.puts(html30)
+end
+
 open_prs=copy_open_prs.select { |row| row[:age_comment] > 90 }
 html90 = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
 File.open('report90.html', 'wb') do |f|

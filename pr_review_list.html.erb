@@ -7,6 +7,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/javascript">
+  $.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var min = parseInt( $('#min').val(), 10 );
+        var max = parseInt( $('#max').val(), 10 );
+        var age = parseFloat( data[7] ) || 0; // use data for the age column
+ 
+        if ( ( isNaN( min ) && isNaN( max ) ) ||
+             ( isNaN( min ) && age <= max ) ||
+             ( min <= age   && isNaN( max ) ) ||
+             ( min <= age   && age <= max ) )
+        {
+            return true;
+        }
+        return false;
+    }
+);
+  $(document).ready(function() {
+    var table = $('#reviews').DataTable();
+     
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').keyup( function() {
+        table.draw();
+    } );
+} );
+ 
     $(document).ready(function() {
     // Setup - add a text input to each footer cell
     $('#reviews thead tr td').each( function () {
@@ -51,6 +76,25 @@
          cursor: pointer;
          }
 
+
+
+         .btn {
+  border: none;
+  background-color: inherit;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #eee;}
+
+.minim_button {color: grey;
+               }
+
+.maxim_button {color: grey;}
+
+
 #reviews {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
    font-size: 18px;
@@ -86,9 +130,17 @@
 </style>
 </head>
 <body>
-<h1>PRs that require review</h1>
+<h1>Modules PRs that require review</h1>
+ <a href="https://puppetlabs.github.io/community_management/report60.html" class="button">30 Days</a>
  <a href="https://puppetlabs.github.io/community_management/report60.html" class="button">60 Days</a>
  <a href="https://puppetlabs.github.io/community_management/report90.html" class="button">90 Days</a>
+ <table border="0" cellspacing="3" cellpadding="3">
+        <tbody><tr>
+            <button class="btn minim_button">Minimum:</button>
+            <button><input type="text" id="min" name="min"></button>  
+            <button class="btn maxim_button">Maximum:</button>
+            <button><input type="text" id="max" name="max"></button>
+    </tbody></table><table id="example" class="display" style="width:100%">
 <table border='1' id='reviews' style='width:100%' class='sortable table table-hover'> 
 <tr>
 <% open_prs.first.keys.each do |header| %>
