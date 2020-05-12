@@ -42,9 +42,9 @@ def does_array_have_pr(array, pr_number)
   found
 end
 
-parsed.each do |k, v|
+parsed.each do |_k, v|
   sleep(2)
-  pr_information_cache = util.fetch_async("#{v["github"]}")
+  pr_information_cache = util.fetch_async((v['github']).to_s)
 
   # no comment from a puppet employee
   puppet_uncommented_pulls = util.fetch_pull_requests_with_no_puppet_personnel_comments(pr_information_cache)
@@ -88,7 +88,6 @@ parsed.each do |k, v|
     end
 
     open_prs.push(row)
-    
   end
 end
 

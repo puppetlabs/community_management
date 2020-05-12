@@ -9,14 +9,13 @@ options = {}
 options[:oauth] = ENV['GITHUB_COMMUNITY_TOKEN'] if ENV['GITHUB_COMMUNITY_TOKEN']
 parser = OptionParser.new do |opts|
   opts.banner = 'Usage: stats.rb [options]'
-  opts.on('-f', '--file NAME', String, 'Module file list') { |v| options[:file] = v }
+  opts.on('-u MANDATORY', '--url=MANDATORY', String, 'Link to json file for modules') { |v| options[:url] = v }
   opts.on('-t', '--oauth-token TOKEN', 'OAuth token. Required.') { |v| options[:oauth] = v }
 end
 
 parser.parse!
 
-options[:file] = 'modules.json' if options[:file].nil?
-
+options[:url] = 'https://puppetlabs.github.io/iac/modules.json' if options[:url].nil?
 missing = []
 missing << '-t' if options[:oauth].nil?
 unless missing.empty?
@@ -25,8 +24,12 @@ unless missing.empty?
   exit
 end
 
+uri = URI.parse(options[:url])
+response = Net::HTTP.get_response(uri)
+output = response.body
+parsed = JSON.parse(output)
+
 util = OctokitUtils.new(options[:oauth])
-parsed = util.load_module_list(options[:file])
 
 open_prs = []
 
@@ -38,9 +41,9 @@ def does_array_have_pr(array, pr_number)
   found
 end
 
-parsed.each do |m|
+parsed.each do |_k, v|
   sleep(2)
-  pr_information_cache = util.fetch_async("#{m['github_namespace']}/#{m['repo_name']}")
+  pr_information_cache = util.fetch_async((v['github']).to_s)
   # no comment from a puppet employee
   puppet_uncommented_pulls = util.fetch_pull_requests_with_no_puppet_personnel_comments(pr_information_cache)
   # last comment mentions a puppet person
@@ -50,8 +53,8 @@ parsed.each do |m|
   pr_information_cache.each do |pr|
     sleep(2)
     row = {}
-    row[:repo] = m['repo_name']
-    row[:address] = "https://github.com/#{m['github_namespace']}/#{m['repo_name']}"
+    row[:repo] = v['title']
+    row[:address] = "https://github.com/#{v['github']}"
     row[:pr] = pr[:pull].number
     row[:age] = ((Time.now - pr[:pull].created_at) / 60 / 60 / 24).round
     row[:owner] = pr[:pull].user.login
@@ -92,28 +95,28 @@ parsed.each do |m|
   end
 end
 
-copy_open_prs=[]
-copy_open_prs=open_prs
+copy_open_prs = []
+copy_open_prs = open_prs
 
-open_prs=copy_open_prs.select { |row| row[:age_comment] > 60 && row[:age_comment] < 90}
+open_prs = copy_open_prs.select { |row| row[:age_comment] > 60 && row[:age_comment] < 90 }
 html60 = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
 File.open('report60.html', 'wb') do |f|
   f.puts(html60)
 end
 
-open_prs=copy_open_prs.select { |row| row[:age_comment] > 30 && row[:age_comment] < 60}
+open_prs = copy_open_prs.select { |row| row[:age_comment] > 30 && row[:age_comment] < 60 }
 html30 = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
 File.open('report30.html', 'wb') do |f|
   f.puts(html30)
 end
 
-open_prs=copy_open_prs.select { |row| row[:age_comment] > 90 }
+open_prs = copy_open_prs.select { |row| row[:age_comment] > 90 }
 html90 = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
 File.open('report90.html', 'wb') do |f|
   f.puts(html90)
 end
 
-open_prs=copy_open_prs
+open_prs = copy_open_prs
 html = ERB.new(File.read('pr_review_list.html.erb')).result(binding)
 
 File.open('report.html', 'wb') do |f|

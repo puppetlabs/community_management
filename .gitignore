@@ -13,7 +13,10 @@
 report.*
 report_tools.*
 ModulesRelease.*
-
+report30.*
+report60.*
+report90.*
+GithubActionsReport.*
 ## Specific to RubyMotion:
 .dat*
 .repl_history
