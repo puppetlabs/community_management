@@ -20,12 +20,12 @@ jobs:
       - name: Setup ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.5' 
+          ruby-version: '2.5'
       - name: Generate reports
         run: |
           gem install bundler
           ### generate pr graphs
-          bundle install 
+          bundle install
           bundle exec ruby pr_work_done.rb -t $token
           bundle exec ruby daily_open_prs.rb -t $token
           bundle exec ruby graph.rb --pr_work_done --created_prs_per_day --open_prs_per_day
@@ -34,7 +34,7 @@ jobs:
           ### generate prs for tools report
           bundle exec ruby tools.rb -t $token
           ### generate release planning
-          bundle exec ruby release_planning.rb -t $token 
+          bundle exec ruby release_planning.rb -t $token
           ### generate github actions report
           bundle exec ruby github_actions_report.rb -t $token
       - name: List files
@@ -45,11 +45,6 @@ jobs:
           cp -r *.png docs/
           cp -r *.csv docs/
           ls -la docs/
-      - name: Add timestamp
-        run: |
-          data=$("date")
-          echo "Adding timestamp $data"
-          sed -i -e "s|<p>.*<\/p>|<p>$data</p>|g" index.html
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
