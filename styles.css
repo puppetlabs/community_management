@@ -1,0 +1,164 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 80%;
+    /* border: 1px solid #ddd; */
+    position: relative;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
+    position: relative;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 80%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+.labels tr td {
+    /*	background-color: #32B232;
+*/
+    font-weight: bold;
+}
+
+.label tr td label {
+    display: block;
+}
+
+.btn2 {
+    display: inline-block;
+    text-decoration: none;
+    background: #26b405;
+    color: #FFF;
+    width: 21px;
+    height: 21px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    border: dashed 0px #FFF;
+    transition: .4s;
+}
+
+.btn-2 {
+    background-image: linear-gradient(to right, #13ac13 0%, #1d933f 51%);
+}
+
+.btn1 {
+    display: inline-block;
+    text-decoration: none;
+    background: #fe1a00;
+    color: #FFF;
+    width: 21px;
+    height: 21px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    border: dashed 0px #FFF;
+    transition: .4s;
+}
+
+.btn-1 {
+    background-image: linear-gradient(to right, #ef240d 0%, #d20a0a 51%);
+}
+
+.button1 {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: 40px;
+    width: 50px;
+}
+
+.btn2:hover {
+    background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+    background-color: #5cb811;
+}
+
+.btn1:hover {
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #e85332;
+}
+
+.center {
+    text-align: center;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 700px) {
+    td {
+        display: inline-block;
+        padding: 5px;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 700px) {
+    th {
+        display: inline-block;
+        padding: 5px;
+        width: 100%;
+    }
+}
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {}
+
+
+/* Portrait */
+
+@media (max-device-width: 800px) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media (max-device-width: 1280px) and (orientation: landscape) {}
+
+
+/* ----------- Galaxy Tab S ----------- */
+
+
+/* Portrait and Landscape */
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Portrait */
+
+@media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Landscape */
+
+@media (max-device-width: 1280px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
