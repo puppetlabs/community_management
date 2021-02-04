@@ -6,12 +6,13 @@ require 'json'
 require 'rest-client'
 require_relative 'octokit_utils'
 require_relative 'options'
+
 options = parse_options
 parsed = load_url(options)
 util = OctokitUtils.new(options[:oauth])
 result_hash = []
 headers = { Authorization: "token #{options[:oauth]}" }
-count = 0
+
 parsed.each do |_k, v|
   limit = util.client.rate_limit!
   puts "Getting data from Github API for #{v['github']}"
@@ -38,7 +39,6 @@ parsed.each do |_k, v|
       jobs_json = JSON.parse(RestClient.get(run['jobs_url'], headers))
       jobs_json['jobs'].each do |job|
         next unless job['name'].include?('Acceptance')
-
         matches = job['name'].match(/Acceptance \((?<os>[a-z0-9_.-]*), (?<agent>[a-z0-9_.-]*)\)/)
         export_results << {
           "os": matches[:os],
