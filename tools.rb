@@ -52,7 +52,9 @@ parsed.each do |_k, v|
 
   # loop through open pr's and create a row that has all the pertinant info
   pr_information_cache.each do |pr|
+    require 'pry'
     sleep(2)
+      binding.pry
       if pr[:pull][:draft] == false
         row = {}
         row[:tool] = v['title']
