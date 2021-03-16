@@ -53,46 +53,48 @@ parsed.each do |_k, v|
   # loop through open pr's and create a row that has all the pertinant info
   pr_information_cache.each do |pr|
     sleep(2)
-    row = {}
-    row[:tool] = v['title']
-    row[:address] = "https://github.com/#{v['github']}"
-    row[:pr] = pr[:pull].number
-    row[:age] = ((Time.now - pr[:pull].created_at) / 60 / 60 / 24).round
-    row[:owner] = pr[:pull].user.login
-    row[:owner] += " <span class='label label-primary'>iac</span>" if util.iac_member?(pr[:pull].user.login)
-    row[:owner] += " <span class='label label-warning'>puppet</span>" if util.puppet_member?(pr[:pull].user.login)
-    row[:owner] += " <span class='badge badge-secondary'>vox</span>" if util.voxpupuli_member?(pr[:pull].user.login)
-    row[:title] = pr[:pull].title
+      if pr[:pull][:draft] == false
+        row = {}
+        row[:tool] = v['title']
+        row[:address] = "https://github.com/#{v['github']}"
+        row[:pr] = pr[:pull].number
+        row[:age] = ((Time.now - pr[:pull].created_at) / 60 / 60 / 24).round
+        row[:owner] = pr[:pull].user.login
+        row[:owner] += " <span class='label label-primary'>iac</span>" if util.iac_member?(pr[:pull].user.login)
+        row[:owner] += " <span class='label label-warning'>puppet</span>" if util.puppet_member?(pr[:pull].user.login)
+        row[:owner] += " <span class='badge badge-secondary'>vox</span>" if util.voxpupuli_member?(pr[:pull].user.login)
+        row[:title] = pr[:pull].title
 
-    if !pr[:issue_comments].empty?
+        if !pr[:issue_comments].empty?
 
-      if pr[:issue_comments].last.user.login =~ /\Acodecov/
-        begin
-          row[:last_comment] = pr[:issue_comments].body(-2).gsub(%r{<\/?[^>]*>}, '')
-        rescue StandardError
-          row[:last_comment] = 'No previous comment other than codecov-io'
+          if pr[:issue_comments].last.user.login =~ /\Acodecov/
+            begin
+              row[:last_comment] = pr[:issue_comments].body(-2).gsub(%r{<\/?[^>]*>}, '')
+            rescue StandardError
+              row[:last_comment] = 'No previous comment other than codecov-io'
+              row[:by] = ''
+            end
+
+          else
+            row[:last_comment] = pr[:issue_comments].last.body.gsub(%r{<\/?[^>]*>}, '')
+            row[:by] = pr[:issue_comments].last.user.login
+
+          end
+          row[:age_comment] = ((Time.now - pr[:issue_comments].last.updated_at) / 60 / 60 / 24).round
+        else
+          row[:last_comment] = '0 comments'
           row[:by] = ''
+          row[:age_comment] = 0
         end
+        row[:num_comments] = pr[:issue_comments].size
 
-      else
-        row[:last_comment] = pr[:issue_comments].last.body.gsub(%r{<\/?[^>]*>}, '')
-        row[:by] = pr[:issue_comments].last.user.login
+        # find prs not commented by puppet
+        row[:no_comment_from_puppet] = does_array_have_pr(puppet_uncommented_pulls, pr[:pull].number)
+        # last comment mentions puppet member
+        row[:last_comment_mentions_puppet] = does_array_have_pr(mentioned_pulls, pr[:pull].number)
 
+        open_prs.push(row)
       end
-      row[:age_comment] = ((Time.now - pr[:issue_comments].last.updated_at) / 60 / 60 / 24).round
-    else
-      row[:last_comment] = '0 comments'
-      row[:by] = ''
-      row[:age_comment] = 0
-    end
-    row[:num_comments] = pr[:issue_comments].size
-
-    # find prs not commented by puppet
-    row[:no_comment_from_puppet] = does_array_have_pr(puppet_uncommented_pulls, pr[:pull].number)
-    # last comment mentions puppet member
-    row[:last_comment_mentions_puppet] = does_array_have_pr(mentioned_pulls, pr[:pull].number)
-
-    open_prs.push(row)
   end
 end
 

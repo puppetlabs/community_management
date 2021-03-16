@@ -159,7 +159,7 @@ ga('set', 'anonymizeIp', true);
   
 
   
-      <td><a target ="_blank" href='https://github.com/puppetlabs/pdk-templates'>PDK Templates</a></td>
+      <td><a target ="_blank" href='https://github.com/rodjek/puppet-lint'>puppet-lint</a></td>
   
   
   
@@ -171,22 +171,14 @@ ga('set', 'anonymizeIp', true);
   
 
   
-      <td><a target ="_blank" href='https://github.com/puppetlabs/pdk-templates/pull/341'>341</a></td>
+      <td><a target ="_blank" href='https://github.com/rodjek/puppet-lint/pull/586'>586</a></td>
   
   
   
 
   
       
-        <td>208</td>
-      
-  
-  
-  
-
-  
-      
-        <td>binford2k <span class='label label-warning'>puppet</span> <span class='badge badge-secondary'>vox</span></td>
+        <td>1553</td>
       
   
   
@@ -194,18 +186,22 @@ ga('set', 'anonymizeIp', true);
 
   
       
-        <td>Add starter Forge publish GitHub action</td>
+        <td>rnelson0 <span class='badge badge-secondary'>vox</span></td>
+      
+  
+  
+  
+
+  
+      
+        <td>Puppethack: Validate puppet code before attempting to lint it.</td>
       
   
   
   
   <td>
   <div class="content hideContent">
-     @binford2k FYI i've been working on converting some of our Travis stuff over to GitHub actions example: https://github.com/EncoreTechnologies/puppet-powershellmodule/blob/master/.github/workflows/build.yaml
-
-I'm interested in helping this along. I think the only piece missing from my version is the following:
-- acceptance testing 
-- templatizing and turning hard coded things into variables and options
+     There's #728 which adds *some* error detection and handling. If this PR is to be merged, it'll need to be rebased and de-conflicted with that change first.
 </div>
  <div class="show-more">
         <a href="#">Show more</a>
@@ -220,7 +216,7 @@ I'm interested in helping this along. I think the only piece missing from my ver
 
   
       
-        <td>nmaludy</td>
+        <td>DavidS</td>
       
   
   
@@ -228,7 +224,7 @@ I'm interested in helping this along. I think the only piece missing from my ver
 
   
       
-        <td>98</td>
+        <td>127</td>
       
   
   
@@ -236,7 +232,7 @@ I'm interested in helping this along. I think the only piece missing from my ver
 
   
       
-        <td>2</td>
+        <td>12</td>
       
   
   
@@ -245,6 +241,98 @@ I'm interested in helping this along. I think the only piece missing from my ver
   
       
         <td>false</td>
+      
+  
+  
+  
+
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/mcanevet/rspec-puppet-facts'>rspec-puppet-facts</a></td>
+  
+  
+  
+
+  
+      
+  
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/mcanevet/rspec-puppet-facts/pull/124'>124</a></td>
+  
+  
+  
+
+  
+      
+        <td>126</td>
+      
+  
+  
+  
+
+  
+      
+        <td>ekohl <span class='badge badge-secondary'>vox</span></td>
+      
+  
+  
+  
+
+  
+      
+        <td>Performance improvements</td>
+      
+  
+  
+  
+  <td>
+  <div class="content hideContent">
+     @sanfrancrisko at this point I'm uncertain what is expected. I'd like some guidance from the maintainers what the behavior should be. That means either changing the tests (as I suggested) or changing the code to pass the tests. Until I get that feedback I'm blocked.
+</div>
+ <div class="show-more">
+        <a href="#">Show more</a>
+    </div></td>
+
+
+  
+      
+  
+  
+  
+
+  
+      
+        <td>ekohl</td>
+      
+  
+  
+  
+
+  
+      
+        <td>106</td>
+      
+  
+  
+  
+
+  
+      
+        <td>9</td>
       
   
   
@@ -256,6 +344,14 @@ I'm interested in helping this along. I think the only piece missing from my ver
       
   
   
+  
+
+  
+      
+        <td>false</td>
+      
+  
+  
   </tr>
 
   <tr>
@@ -263,7 +359,7 @@ I'm interested in helping this along. I think the only piece missing from my ver
   
 
   
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs_spec_helper'>Puppet Labs Spec Helper</a></td>
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet'>rspec-puppet</a></td>
   
   
   
@@ -275,22 +371,14 @@ I'm interested in helping this along. I think the only piece missing from my ver
   
 
   
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs_spec_helper/pull/288'>288</a></td>
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet/pull/794'>794</a></td>
   
   
   
 
   
       
-        <td>661</td>
-      
-  
-  
-  
-
-  
-      
-        <td>rodjek <span class='badge badge-secondary'>vox</span></td>
+        <td>313</td>
       
   
   
@@ -298,22 +386,26 @@ I'm interested in helping this along. I think the only piece missing from my ver
 
   
       
-        <td>(PDK-1047) Add rake task to inspect module for class & defined type definitions</td>
+        <td>thatnerdjosh</td>
+      
+  
+  
+  
+
+  
+      
+        <td>Allow users to setup control repo</td>
       
   
   
   
   <td>
   <div class="content hideContent">
-     > What I was saying is that retrospec already does the thing being built here.
+     Hello @DavidS,
 
-The goal of PDK-1047 is not to implement retrospec style functionality. We do not want to inspect the contents of the class or defined types to generate extensive tests for all the contained resources.
+This was so long ago, somehow it slipped my plate... I forgot what a control repo was or what this code was achieving. I'll take a look and then update the docs accordingly.
 
-> Test generators suffer from the problem that most people using them have no clue how to write or maintain the tests it creates. Test Education is more important IMHO.
-
-The scope of this is simply to be able to examine a module during `pdk convert` and feed this information into the existing PDK object generators so that the *very minimal* template specs are generated, the same specs that are generated by running `pdk new class` or `pdk new defined_type`.
-
-These generated tests are little more than `it { is_expected.to compile }`, which we've found is enough for most users.
+Thanks
 </div>
  <div class="show-more">
         <a href="#">Show more</a>
@@ -328,7 +420,7 @@ These generated tests are little more than `it { is_expected.to compile }`, whic
 
   
       
-        <td>rodjek</td>
+        <td>thatnerdjosh</td>
       
   
   
@@ -336,7 +428,7 @@ These generated tests are little more than `it { is_expected.to compile }`, whic
 
   
       
-        <td>581</td>
+        <td>123</td>
       
   
   
@@ -344,7 +436,15 @@ These generated tests are little more than `it { is_expected.to compile }`, whic
 
   
       
-        <td>7</td>
+        <td>4</td>
+      
+  
+  
+  
+
+  
+      
+        <td>true</td>
       
   
   
@@ -353,6 +453,98 @@ These generated tests are little more than `it { is_expected.to compile }`, whic
   
       
         <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet'>rspec-puppet</a></td>
+  
+  
+  
+
+  
+      
+  
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet/pull/555'>555</a></td>
+  
+  
+  
+
+  
+      
+        <td>1349</td>
+      
+  
+  
+  
+
+  
+      
+        <td>kjetilho</td>
+      
+  
+  
+  
+
+  
+      
+        <td>Add .tagged and .not_tagged methods for resource matcher</td>
+      
+  
+  
+  
+  <td>
+  <div class="content hideContent">
+     rebased again and updated compile matcher test to use correct line number.
+</div>
+ <div class="show-more">
+        <a href="#">Show more</a>
+    </div></td>
+
+
+  
+      
+  
+  
+  
+
+  
+      
+        <td>DavidS</td>
+      
+  
+  
+  
+
+  
+      
+        <td>120</td>
+      
+  
+  
+  
+
+  
+      
+        <td>4</td>
+      
+  
+  
+  
+
+  
+      
+        <td>true</td>
       
   
   
@@ -390,7 +582,7 @@ These generated tests are little more than `it { is_expected.to compile }`, whic
 
   
       
-        <td>1231</td>
+        <td>1271</td>
       
   
   
@@ -451,7 +643,7 @@ end
 
   
       
-        <td>878</td>
+        <td>918</td>
       
   
   
@@ -460,6 +652,106 @@ end
   
       
         <td>9</td>
+      
+  
+  
+  
+
+  
+      
+        <td>false</td>
+      
+  
+  
+  
+
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet'>rspec-puppet</a></td>
+  
+  
+  
+
+  
+      
+  
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet/pull/619'>619</a></td>
+  
+  
+  
+
+  
+      
+        <td>1229</td>
+      
+  
+  
+  
+
+  
+      
+        <td>binford2k <span class='label label-warning'>puppet</span> <span class='badge badge-secondary'>vox</span></td>
+      
+  
+  
+  
+
+  
+      
+        <td>Adds the ability to spec test an arbitrary string</td>
+      
+  
+  
+  
+  <td>
+  <div class="content hideContent">
+     @binford2k @scotje is this still relevant? If yes, please link to a internal ticket to capture that.
+</div>
+ <div class="show-more">
+        <a href="#">Show more</a>
+    </div></td>
+
+
+  
+      
+  
+  
+  
+
+  
+      
+        <td>DavidS</td>
+      
+  
+  
+  
+
+  
+      
+        <td>127</td>
+      
+  
+  
+  
+
+  
+      
+        <td>4</td>
       
   
   
