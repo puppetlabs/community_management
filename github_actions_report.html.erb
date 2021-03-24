@@ -9,32 +9,14 @@
   <link rel='stylesheet' href='./web_libraries/DataTables/datatables.css'>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-  <script src="github_action_report.js"></script>   
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-  google.charts.load("current", {packages:["corechart"]});
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Job Status', 'Total'],
-        ['Success', <%= result_hash.map { |x| x[:total_successes] }.reduce(0) { |sum, num| sum + num } %>],
-        ['Failure', <%= result_hash.map { |x| x[:total_failures] }.reduce(0) { |sum, num| sum + num } %>]
-      ]);
-      var options = {
-        title: 'Runs Overview',
-        slices: [{ color: 'green'}, { color: 'red'}],
-        pieHole: 0.4,
-      };
-      var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-      chart.draw(data, options);
-    }
-     google.charts.setOnLoadCallback(drawChart);
-  </script>
+  <script src="github_action_report.js"></script>   
 </head>
 <body>
 <h1 style="text-align:center;">Github Actions Report</h1>
-<center><div id="donutchart" style="width: 900px; height: 500px;"></div></center>
+<center><div id="donutchart" style="width: 80%; height: 50%;"></div></center>
 <br>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<input type="text" id="inputSearch" onkeyup="searchFunction()" placeholder="Search for names.." title="Type in a name">
 <div style="overflow-x:auto;">
     <table id="principalTable" >
         <thead>
@@ -55,7 +37,7 @@
                     <% m[:runs][0..4].each do |run| %>
                     <td width="20%"> 
                     <% if run[:general_conclusion] %>
-                      <input type="button" class="btn1 btn-1" name="<%= run[:run_id] %>" onclick="toggle('<%= run[:run_id] %>')  ">
+                    <input type="button" class="btn1 btn-1" name="<%= run[:run_id] %>" onclick="toggle('<%= run[:run_id] %>')  ">
                     <% else %>
                       <input type="button" class="btn2 btn-2" name="<%= run[:run_id] %>" onclick="toggle('<%= run[:run_id] %>')  ">
                     <% end %>

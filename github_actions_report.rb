@@ -88,3 +88,7 @@ html = ERB.new(File.read('github_actions_report.html.erb')).result(binding)
 File.open('GithubActionsReport.html', 'wb') do |f|
   f.puts(html)
 end
+js = ERB.new(File.read('github_actions_report.js.erb')).result(binding)
+File.open('github_action_report.js', 'wb') do |f|
+  f.puts(js)
+end
