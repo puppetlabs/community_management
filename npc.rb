@@ -45,7 +45,7 @@ parsed.each do |_k, v|
       puts "#{v['github']} #{pr.number} adding comment and label"
       unless options[:no_op]
         # do comment
-        util.add_comment_to_pr((v['github']).to_s, pr.number, "Thanks @#{pr.user.login} for your work, but can't be merged as it has conflicts. Please rebase them on the current master, fix the conflicts and repush here. https://git-scm.com/book/en/v2/Git-Branching-Rebasing")
+        util.add_comment_to_pr((v['github']).to_s, pr.number, "Thanks @#{pr.user.login} for your work, but can't be merged as it has conflicts. Please rebase them on the current main, fix the conflicts and repush here. https://git-scm.com/book/en/v2/Git-Branching-Rebasing")
         # do label
         util.add_label_to_pr((v['github']).to_s, pr.number, 'needs-rebase')
       end

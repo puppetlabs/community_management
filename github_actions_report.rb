@@ -23,7 +23,6 @@ def parse_job(job,module_name)
     "url": "https://github.com/#{module_name}/runs/#{job['id']}?check_suite_focus=true" 
   }
 end
-
 parsed.each do |_k, v|
   limit = util.client.rate_limit!
   puts "Getting data from Github API for #{v['github']}"
@@ -61,15 +60,17 @@ parsed.each do |_k, v|
         "job_successes": job_successes
       }
     end
+
     result_hash << {
       "url": "https://github.com/#{v['github']}",
       "name": v['title'],
-      "runs": runs_array,
+      "runs": runs_array.sort_by {|hash| hash[:run_number]},
       "workflows": data['workflows'],
       "total_failures": runs_array.map { |x| x[:job_failures]}.reduce(0) { |sum, num| sum + num },
-      "total_successes": runs_array.map { |x| x[:job_successes]}.reduce(0) { |sum, num| sum + num }
+      "total_successes": runs_array.map { |x| x[:job_successes]}.reduce(0) { |sum, num| sum + num },
+      "last_night_failures": runs_array[0][:job_failures], 
+      "last_night_successes": runs_array[0][:job_successes]
     }
-    
   end
 rescue StandardError => e
   puts "#{v['title']} - Error: #{e}"

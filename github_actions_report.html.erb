@@ -14,7 +14,12 @@
 </head>
 <body>
 <h1 style="text-align:center;">Github Actions Nightly Report</h1>
-<center><div id="donutchart" style="width: 80%; height: 50%;"></div></center>
+<table class="columns">
+      <tr>
+       <td width="50%"><div id="donutchart_total_runs" style="width: 80%; height: 50%;"></div></td>
+      <td width="50%"><div id="donutchart_last_run" style="width: 80%; height: 50%;"></div></td>
+      </tr>
+    </table>
 <br>
 <input type="text" id="inputSearch" onkeyup="searchFunction()" placeholder="Search for names.." title="Type in a name">
 <div style="overflow-x:auto;">

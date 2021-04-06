@@ -1,6 +1,12 @@
-name: "OnPush"
+name: "OnPush/OnPR"
 
-on: [ push ]
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 
 jobs:
   generate:
@@ -51,12 +57,14 @@ jobs:
           echo "Adding timestamp $data"
           sed -i -e "s|<p>.*<\/p>|<p>$data</p>|g" index.html
       - name: Commit files
+        if: ${{ github.event_name != 'pull_request' }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Add generated data"
       - name: Push changes
+        if: ${{ github.event_name != 'pull_request' }}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.token }}

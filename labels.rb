@@ -21,6 +21,15 @@ options = parse_options do |opts, result|
   opts.on('-f', '--fix-labels', 'Add the missing labels to repo') { result[:fix_labels] = true }
   opts.on('-d', '--delete-labels', 'Delete unwanted labels from repo') { result[:delete_labels] = true }
 
+  opts.on('-n', '--namespace [NAME]', 'Name of a GitHub namespace to work on.') do |v|
+    result[:namespace] = v
+  end
+
+  opts.on('-r', '--repo-regex [REGEX]', 'Repository regex') do |v|
+    result[:repo_regex] = v
+    raise "--repo-regex can only be used in conjunction with --namespace" unless result[:namespace]
+  end
+
   opts.on('--repo [REPO]', 'Pass a repository name, defaults to the current upstream.') do |v|
     result[:remote] = v || primary_remote
     raise 'Could not guess primary remote. Try using --remote instead.' unless result[:remote]
@@ -32,13 +41,16 @@ options = parse_options do |opts, result|
   end
 end
 
+util = OctokitUtils.new(options[:oauth])
+
 if options[:remote]
   parsed = { options[:remote] => { 'github' => options[:remote] } }
+elsif options[:namespace]
+  options[:repo_regex] = '.*' if options[:repo_regex].nil?
+  parsed = util.list_repos(options[:namespace], options)
 else
   parsed = load_url(options)
 end
-
-util = OctokitUtils.new(options[:oauth])
 
 wanted_labels = [
   { name: 'backwards-incompatible', color: 'd63700' },
@@ -61,7 +73,11 @@ end
 puts "Checking for the following labels: #{label_names}"
 
 parsed.each do |_k, v|
-  repo_name = (v['github']).to_s
+  if options[:namespace]
+    repo_name = "#{options[:namespace]}/#{_k}"
+  else
+    repo_name = (v['github']).to_s
+  end
   missing_labels = util.fetch_repo_missing_labels(repo_name, wanted_labels)
   incorrect_labels = util.fetch_repo_incorrect_labels(repo_name, wanted_labels)
   extra_labels = util.fetch_repo_extra_labels(repo_name, wanted_labels)
