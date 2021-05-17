@@ -38,6 +38,12 @@ jobs:
           bundle exec ruby github_actions_report.rb -t $token
           ### generate adoptable modules page
           bundle exec ruby adoptable_modules.rb -t $token
+      - name: Add timestamp
+        run: |
+          data=$("date")
+          echo "Adding timestamp $data"
+          sed -i -e "s|<p>.*<\/p>|<p>$data</p>|g" index.html
+          cat index.html    
       - name: List files
         run: |
           ls -la
@@ -49,12 +55,6 @@ jobs:
           cp -r *.json docs/
           cp -r *.js docs/
           ls -la docs/
-      - name: Add timestamp
-        run: |
-          data=$("date")
-          echo "Adding timestamp $data"
-          sed -i -e "s|<p>.*<\/p>|<p>$data</p>|g" index.html
-          cat index.html
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
