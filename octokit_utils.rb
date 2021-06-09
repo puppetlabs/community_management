@@ -65,6 +65,10 @@ class OctokitUtils
     return repos.sort.uniq
   end
 
+  def repo_is_archived?(repo)
+    @client.repository(repo).archived
+  end
+
   def pulls(repo, options)
     @pr_cache[[repo, options]] ||= client.pulls(repo, options)
   end
