@@ -8,6 +8,7 @@ gem 'puppet_forge'
 
 group 'development' do
   gem 'pry'
+  gem 'rubocop'
 end
 
 gem 'algorithms'
