@@ -9,3 +9,5 @@ gem 'puppet_forge'
 group 'development' do
   gem 'pry'
 end
+
+gem 'algorithms'
