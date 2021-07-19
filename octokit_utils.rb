@@ -38,7 +38,14 @@ class OctokitUtils
     end
     false
   end
-
+  
+  def trusted_contributor?(username)
+    @tc_members ||= client.organization_members('puppet-trusted')
+    @tc_members.each do |tc_memeber|
+      return true if username == tc_memeber[:login]
+    end
+    false
+  end
   # Octokit uses a different method for getting the repositories of an
   # organization than it does for getting the repositories of a user. This
   # method checks the "type" of a given namespace and uses the value to

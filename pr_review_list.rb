@@ -43,6 +43,7 @@ parsed.each do |_k, v|
         row[:owner] += " <span class='label label-primary'>iac</span>" if util.iac_member?(pr[:pull].user.login)
         row[:owner] += " <span class='label label-warning'>puppet</span>" if util.puppet_member?(pr[:pull].user.login)
         row[:owner] += " <span class='badge badge-secondary'>vox</span>" if util.voxpupuli_member?(pr[:pull].user.login)
+        row[:owner] += " <span class='badge badge-success'>tc</span>" if util.trusted_contributor?(pr[:pull].user.login)
         row[:title] = pr[:pull].title
 
         if !pr[:issue_comments].empty?
