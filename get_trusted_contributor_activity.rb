@@ -57,10 +57,23 @@ parsed.each do |_k, v|
                                           filter = %i[statuses pull_request_commits issue_comments],
                                           limit = { attribute: 'closed_at', date: Date.parse(date_limit) }
                                          )
-  result[v['github']] = pr_information_cache.select { |row| allow_row(row, util) }.size
+  contributions = pr_information_cache.select { |row| allow_row(row, util) }
+
+  result[v['github']] = { :contributions => contributions.size, :data => contributions }   
 end
 
+contributors_hash = Hash.new{ |k,v| k[v] = 0 }
 puts "Repository, Trusted Contributor Activity PRs since #{date_limit}"
 result.each do |k,v|
+  puts "Repository #{k}"
+  v[:data].each do |row|
+    puts "#{k},#{row[:pull].user.login},#{row[:pull].title}"
+    contributors_hash[row[:pull].user.login] += 1 
+  end
+  puts "Total contributions,#{v[:contributions]}"
+end
+
+puts "Contribution summary"
+contributors_hash.each do |k,v|
   puts "#{k},#{v}"
 end
