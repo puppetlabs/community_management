@@ -204,7 +204,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>12</td>
+        <td>13</td>
       
   
   
@@ -274,7 +274,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>33</td>
+        <td>34</td>
       
   
   
@@ -304,7 +304,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>20</td>
+        <td>21</td>
       
   
   
@@ -344,7 +344,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>33</td>
+        <td>34</td>
       
   
   
@@ -374,7 +374,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>6</td>
+        <td>7</td>
       
   
   
@@ -414,7 +414,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>26</td>
+        <td>27</td>
       
   
   
@@ -628,98 +628,13 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>26</td>
+        <td>27</td>
       
   
   
   
       
         <td>2</td>
-      
-  
-  
-  
-      
-        <td>true</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache'>puppetlabs-apache</a></td>
-  
-  
-  
-      
-  
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache/pull/2164'>2164</a></td>
-  
-  
-  
-      
-        <td>16</td>
-      
-  
-  
-  
-      
-        <td>hunner <span class='label label-warning'>puppet</span> <span class='badge badge-secondary'>vox</span></td>
-      
-  
-  
-  
-      
-        <td>Allow custom userdir directives</td>
-      
-  
-  
-  
-      
-        <td>[apache::mod::userdir](https://github.com/puppetlabs/puppetlabs-apache/blob/565129834a5917edea3c33c1fd77e844e1e69112/manifests/mod/userdir.pp) is a _class_
-----------------------------------
-
-that may have no external impact to Forge modules.
-
-
-
-
-#### This module is declared in 175 of 576 indexed public `Puppetfiles`.
-
----------------------------------
-
-These results were generated with [Rangefinder](https://github.com/puppetlabs/puppet-community-rangefinder), a tool that helps predict the downstream impact of breaking changes to elements used in Puppet modules. You can run this on the command line to get a full report.
-
-Exact matches are those that we can positively identify via namespace and the declaring modules' metadata. Non-namespaced items, such as Puppet 3.x functions, will always be reported as near matches only.
-</td>
-      
-  
-  
-  
-      
-        <td>puppet-community-rangefinder[bot]</td>
-      
-  
-  
-  
-      
-        <td>16</td>
-      
-  
-  
-  
-      
-        <td>1</td>
       
   
   
@@ -753,7 +668,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>5</td>
+        <td>6</td>
       
   
   
@@ -783,7 +698,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>5</td>
+        <td>6</td>
       
   
   
@@ -818,12 +733,84 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
   
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache/pull/2163'>2163</a></td>
+  
+  
+  
+      
+        <td>18</td>
+      
+  
+  
+  
+      
+        <td>storm49152</td>
+      
+  
+  
+  
+      
+        <td>Fetch correct _module_id value in apache::mod::php</td>
+      
+  
+  
+  
+      
+        <td>I think you're right. Here's the relevant code:
+https://github.com/puppetlabs/puppetlabs-apache/blob/337e8b00b2a54f503e2ab0fa5c16d7a3a648c302/manifests/mod/php.pp#L64-L71
+It looks like it should be using `$_php_version_no_dot` instead of `$php_version` there. However, I don't know if that breaks other distros.</td>
+      
+  
+  
+  
+      
+        <td>ekohl</td>
+      
+  
+  
+  
+      
+        <td>13</td>
+      
+  
+  
+  
+      
+        <td>4</td>
+      
+  
+  
+  
+      
+        <td>true</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache'>puppetlabs-apache</a></td>
+  
+  
+  
+      
+  
+  
+  
       <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache/pull/2162'>2162</a></td>
   
   
   
       
-        <td>25</td>
+        <td>26</td>
       
   
   
@@ -868,85 +855,13 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>25</td>
+        <td>26</td>
       
   
   
   
       
         <td>2</td>
-      
-  
-  
-  
-      
-        <td>true</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache'>puppetlabs-apache</a></td>
-  
-  
-  
-      
-  
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache/pull/2163'>2163</a></td>
-  
-  
-  
-      
-        <td>17</td>
-      
-  
-  
-  
-      
-        <td>storm49152</td>
-      
-  
-  
-  
-      
-        <td>Fetch correct _module_id value in apache::mod::php</td>
-      
-  
-  
-  
-      
-        <td>I think you're right. Here's the relevant code:
-https://github.com/puppetlabs/puppetlabs-apache/blob/337e8b00b2a54f503e2ab0fa5c16d7a3a648c302/manifests/mod/php.pp#L64-L71
-It looks like it should be using `$_php_version_no_dot` instead of `$php_version` there. However, I don't know if that breaks other distros.</td>
-      
-  
-  
-  
-      
-        <td>ekohl</td>
-      
-  
-  
-  
-      
-        <td>12</td>
-      
-  
-  
-  
-      
-        <td>4</td>
       
   
   
@@ -980,7 +895,7 @@ It looks like it should be using `$_php_version_no_dot` instead of `$php_version
   
   
       
-        <td>38</td>
+        <td>39</td>
       
   
   
@@ -1012,7 +927,7 @@ I don't think that this feature is so important, that it needs an example. The o
   
   
       
-        <td>11</td>
+        <td>12</td>
       
   
   
@@ -1025,6 +940,91 @@ I don't think that this feature is so important, that it needs an example. The o
   
       
         <td>false</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache'>puppetlabs-apache</a></td>
+  
+  
+  
+      
+  
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache/pull/2164'>2164</a></td>
+  
+  
+  
+      
+        <td>17</td>
+      
+  
+  
+  
+      
+        <td>hunner <span class='label label-warning'>puppet</span> <span class='badge badge-secondary'>vox</span></td>
+      
+  
+  
+  
+      
+        <td>Allow custom userdir directives</td>
+      
+  
+  
+  
+      
+        <td>[apache::mod::userdir](https://github.com/puppetlabs/puppetlabs-apache/blob/565129834a5917edea3c33c1fd77e844e1e69112/manifests/mod/userdir.pp) is a _class_
+----------------------------------
+
+that may have no external impact to Forge modules.
+
+
+
+
+#### This module is declared in 175 of 576 indexed public `Puppetfiles`.
+
+---------------------------------
+
+These results were generated with [Rangefinder](https://github.com/puppetlabs/puppet-community-rangefinder), a tool that helps predict the downstream impact of breaking changes to elements used in Puppet modules. You can run this on the command line to get a full report.
+
+Exact matches are those that we can positively identify via namespace and the declaring modules' metadata. Non-namespaced items, such as Puppet 3.x functions, will always be reported as near matches only.
+</td>
+      
+  
+  
+  
+      
+        <td>puppet-community-rangefinder[bot]</td>
+      
+  
+  
+  
+      
+        <td>17</td>
+      
+  
+  
+  
+      
+        <td>1</td>
+      
+  
+  
+  
+      
+        <td>true</td>
       
   
   
@@ -1052,7 +1052,7 @@ I don't think that this feature is so important, that it needs an example. The o
   
   
       
-        <td>2</td>
+        <td>3</td>
       
   
   
@@ -1518,7 +1518,162 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>2</td>
+        <td>3</td>
+      
+  
+  
+  
+      
+        <td>1</td>
+      
+  
+  
+  
+      
+        <td>true</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall'>puppetlabs-firewall</a></td>
+  
+  
+  
+      
+  
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall/pull/981'>981</a></td>
+  
+  
+  
+      
+        <td>124</td>
+      
+  
+  
+  
+      
+        <td>tskirvin</td>
+      
+  
+  
+  
+      
+        <td>lib/puppet/provider/firewall/iptables.rb - comments cleanup for parsing</td>
+      
+  
+  
+  
+      
+        <td>Licensing folks have approved, reopening.</td>
+      
+  
+  
+  
+      
+        <td>tskirvin</td>
+      
+  
+  
+  
+      
+        <td>97</td>
+      
+  
+  
+  
+      
+        <td>4</td>
+      
+  
+  
+  
+      
+        <td>true</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall'>puppetlabs-firewall</a></td>
+  
+  
+  
+      
+  
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall/pull/998'>998</a></td>
+  
+  
+  
+      
+        <td>8</td>
+      
+  
+  
+  
+      
+        <td>vchepkov</td>
+      
+  
+  
+  
+      
+        <td>add compatibility with Rocky Linux</td>
+      
+  
+  
+  
+      
+        <td>[firewall::linux](https://github.com/puppetlabs/puppetlabs-firewall/blob/91da0c964591fb2cde810b4467696a8f5e350973/manifests/linux.pp) is a _class_
+----------------------------------
+
+that may have no external impact to Forge modules.
+
+
+
+
+#### This module is declared in 108 of 576 indexed public `Puppetfiles`.
+
+---------------------------------
+
+These results were generated with [Rangefinder](https://github.com/puppetlabs/puppet-community-rangefinder), a tool that helps predict the downstream impact of breaking changes to elements used in Puppet modules. You can run this on the command line to get a full report.
+
+Exact matches are those that we can positively identify via namespace and the declaring modules' metadata. Non-namespaced items, such as Puppet 3.x functions, will always be reported as near matches only.
+</td>
+      
+  
+  
+  
+      
+        <td>puppet-community-rangefinder[bot]</td>
+      
+  
+  
+  
+      
+        <td>8</td>
       
   
   
@@ -1558,7 +1713,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>5</td>
+        <td>6</td>
       
   
   
@@ -1615,161 +1770,6 @@ Exact matches are those that we can positively identify via namespace and the de
   <tr>
   
   
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall'>puppetlabs-firewall</a></td>
-  
-  
-  
-      
-  
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall/pull/998'>998</a></td>
-  
-  
-  
-      
-        <td>7</td>
-      
-  
-  
-  
-      
-        <td>vchepkov</td>
-      
-  
-  
-  
-      
-        <td>add compatibility with Rocky Linux</td>
-      
-  
-  
-  
-      
-        <td>[firewall::linux](https://github.com/puppetlabs/puppetlabs-firewall/blob/91da0c964591fb2cde810b4467696a8f5e350973/manifests/linux.pp) is a _class_
-----------------------------------
-
-that may have no external impact to Forge modules.
-
-
-
-
-#### This module is declared in 108 of 576 indexed public `Puppetfiles`.
-
----------------------------------
-
-These results were generated with [Rangefinder](https://github.com/puppetlabs/puppet-community-rangefinder), a tool that helps predict the downstream impact of breaking changes to elements used in Puppet modules. You can run this on the command line to get a full report.
-
-Exact matches are those that we can positively identify via namespace and the declaring modules' metadata. Non-namespaced items, such as Puppet 3.x functions, will always be reported as near matches only.
-</td>
-      
-  
-  
-  
-      
-        <td>puppet-community-rangefinder[bot]</td>
-      
-  
-  
-  
-      
-        <td>7</td>
-      
-  
-  
-  
-      
-        <td>1</td>
-      
-  
-  
-  
-      
-        <td>true</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall'>puppetlabs-firewall</a></td>
-  
-  
-  
-      
-  
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-firewall/pull/981'>981</a></td>
-  
-  
-  
-      
-        <td>123</td>
-      
-  
-  
-  
-      
-        <td>tskirvin</td>
-      
-  
-  
-  
-      
-        <td>lib/puppet/provider/firewall/iptables.rb - comments cleanup for parsing</td>
-      
-  
-  
-  
-      
-        <td>Licensing folks have approved, reopening.</td>
-      
-  
-  
-  
-      
-        <td>tskirvin</td>
-      
-  
-  
-  
-      
-        <td>96</td>
-      
-  
-  
-  
-      
-        <td>4</td>
-      
-  
-  
-  
-      
-        <td>true</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
       <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-helm'>puppetlabs-helm</a></td>
   
   
@@ -1783,7 +1783,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>238</td>
+        <td>239</td>
       
   
   
@@ -1813,7 +1813,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>111</td>
+        <td>112</td>
       
   
   
@@ -1853,7 +1853,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>20</td>
+        <td>21</td>
       
   
   
@@ -2050,7 +2050,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>20</td>
+        <td>21</td>
       
   
   
@@ -2090,7 +2090,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>215</td>
+        <td>216</td>
       
   
   
@@ -2120,7 +2120,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>34</td>
+        <td>35</td>
       
   
   
@@ -2155,112 +2155,12 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
   
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-kubernetes/pull/528'>528</a></td>
-  
-  
-  
-      
-        <td>4</td>
-      
-  
-  
-  
-      
-        <td>danifr <span class='badge badge-secondary'>vox</span></td>
-      
-  
-  
-  
-      
-        <td>Support for kubernetes dashboard version 2.0.0 and onwards</td>
-      
-  
-  
-  
-      
-        <td>[kubernetes](https://github.com/puppetlabs/puppetlabs-kubernetes/blob/704bc723543a6507566180e5c046b5baca3a56ff/manifests/init.pp) is a _class_
-----------------------------------
-
-
-
-
-  Breaking changes to this file MAY impact these 5 modules (near match):
-
-* [jetstack-tarmak](https://github.com/jetstack/tarmak/tree/master/puppet/modules/tarmak)
-* [jetstack-prometheus](https://github.com/jetstack/tarmak/tree/master/puppet/modules/prometheus)
-* [jetstack-calico](https://github.com/jetstack/tarmak/tree/master/puppet/modules/calico)
-* [jetstack-fluent_bit](https://github.com/jetstack/tarmak/tree/master/puppet/modules/fluent_bit)
-* [jetstack-kubernetes_addons](https://github.com/jetstack/tarmak/tree/master/puppet/modules/kubernetes_addons)
-
-
-[kubernetes::kube_addons](https://github.com/puppetlabs/puppetlabs-kubernetes/blob/704bc723543a6507566180e5c046b5baca3a56ff/manifests/kube_addons.pp) is a _class_
-----------------------------------
-
-that may have no external impact to Forge modules.
-
-
-
-
-#### This module is declared in 0 of 576 indexed public `Puppetfiles`.
-
----------------------------------
-
-These results were generated with [Rangefinder](https://github.com/puppetlabs/puppet-community-rangefinder), a tool that helps predict the downstream impact of breaking changes to elements used in Puppet modules. You can run this on the command line to get a full report.
-
-Exact matches are those that we can positively identify via namespace and the declaring modules' metadata. Non-namespaced items, such as Puppet 3.x functions, will always be reported as near matches only.
-</td>
-      
-  
-  
-  
-      
-        <td>puppet-community-rangefinder[bot]</td>
-      
-  
-  
-  
-      
-        <td>4</td>
-      
-  
-  
-  
-      
-        <td>1</td>
-      
-  
-  
-  
-      
-        <td>true</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-kubernetes'>puppetlabs-kubernetes</a></td>
-  
-  
-  
-      
-  
-  
-  
       <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-kubernetes/pull/520'>520</a></td>
   
   
   
       
-        <td>57</td>
+        <td>58</td>
       
   
   
@@ -2325,12 +2225,112 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
   
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-kubernetes/pull/528'>528</a></td>
+  
+  
+  
+      
+        <td>5</td>
+      
+  
+  
+  
+      
+        <td>danifr <span class='badge badge-secondary'>vox</span></td>
+      
+  
+  
+  
+      
+        <td>Support for kubernetes dashboard version 2.0.0 and onwards</td>
+      
+  
+  
+  
+      
+        <td>[kubernetes](https://github.com/puppetlabs/puppetlabs-kubernetes/blob/704bc723543a6507566180e5c046b5baca3a56ff/manifests/init.pp) is a _class_
+----------------------------------
+
+
+
+
+  Breaking changes to this file MAY impact these 5 modules (near match):
+
+* [jetstack-tarmak](https://github.com/jetstack/tarmak/tree/master/puppet/modules/tarmak)
+* [jetstack-prometheus](https://github.com/jetstack/tarmak/tree/master/puppet/modules/prometheus)
+* [jetstack-calico](https://github.com/jetstack/tarmak/tree/master/puppet/modules/calico)
+* [jetstack-fluent_bit](https://github.com/jetstack/tarmak/tree/master/puppet/modules/fluent_bit)
+* [jetstack-kubernetes_addons](https://github.com/jetstack/tarmak/tree/master/puppet/modules/kubernetes_addons)
+
+
+[kubernetes::kube_addons](https://github.com/puppetlabs/puppetlabs-kubernetes/blob/704bc723543a6507566180e5c046b5baca3a56ff/manifests/kube_addons.pp) is a _class_
+----------------------------------
+
+that may have no external impact to Forge modules.
+
+
+
+
+#### This module is declared in 0 of 576 indexed public `Puppetfiles`.
+
+---------------------------------
+
+These results were generated with [Rangefinder](https://github.com/puppetlabs/puppet-community-rangefinder), a tool that helps predict the downstream impact of breaking changes to elements used in Puppet modules. You can run this on the command line to get a full report.
+
+Exact matches are those that we can positively identify via namespace and the declaring modules' metadata. Non-namespaced items, such as Puppet 3.x functions, will always be reported as near matches only.
+</td>
+      
+  
+  
+  
+      
+        <td>puppet-community-rangefinder[bot]</td>
+      
+  
+  
+  
+      
+        <td>5</td>
+      
+  
+  
+  
+      
+        <td>1</td>
+      
+  
+  
+  
+      
+        <td>true</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-kubernetes'>puppetlabs-kubernetes</a></td>
+  
+  
+  
+      
+  
+  
+  
       <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-kubernetes/pull/525'>525</a></td>
   
   
   
       
-        <td>9</td>
+        <td>10</td>
       
   
   
@@ -2360,7 +2360,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>5</td>
+        <td>6</td>
       
   
   
@@ -2395,12 +2395,89 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
   
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-mysql/pull/1376'>1376</a></td>
+  
+  
+  
+      
+        <td>123</td>
+      
+  
+  
+  
+      
+        <td>fionera</td>
+      
+  
+  
+  
+      
+        <td>feat: Combine multiple grants into one while checking state</td>
+      
+  
+  
+  
+      
+        <td>Hey @fionera 
+
+I would like to thank you for taking the time submitting this PR. Would you mind adding in a test for this functionality, so we can easily confirm in the future when merging other code and regressions can be highlighted quickly. 
+
+Many thanks
+Puppet IAC Team. 
+
+</td>
+      
+  
+  
+  
+      
+        <td>pmcmaw</td>
+      
+  
+  
+  
+      
+        <td>84</td>
+      
+  
+  
+  
+      
+        <td>3</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-mysql'>puppetlabs-mysql</a></td>
+  
+  
+  
+      
+  
+  
+  
       <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-mysql/pull/1407'>1407</a></td>
   
   
   
       
-        <td>19</td>
+        <td>20</td>
       
   
   
@@ -2430,7 +2507,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>13</td>
+        <td>14</td>
       
   
   
@@ -2470,7 +2547,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>17</td>
+        <td>18</td>
       
   
   
@@ -2502,7 +2579,7 @@ Syntax error fixed .. </td>
   
   
       
-        <td>12</td>
+        <td>13</td>
       
   
   
@@ -2542,7 +2619,7 @@ Syntax error fixed .. </td>
   
   
       
-        <td>9</td>
+        <td>10</td>
       
   
   
@@ -2574,84 +2651,7 @@ Also the tests are inherently dependent on each other because they are making ch
   
   
       
-        <td>5</td>
-      
-  
-  
-  
-      
-        <td>3</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-mysql'>puppetlabs-mysql</a></td>
-  
-  
-  
-      
-  
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-mysql/pull/1376'>1376</a></td>
-  
-  
-  
-      
-        <td>122</td>
-      
-  
-  
-  
-      
-        <td>fionera</td>
-      
-  
-  
-  
-      
-        <td>feat: Combine multiple grants into one while checking state</td>
-      
-  
-  
-  
-      
-        <td>Hey @fionera 
-
-I would like to thank you for taking the time submitting this PR. Would you mind adding in a test for this functionality, so we can easily confirm in the future when merging other code and regressions can be highlighted quickly. 
-
-Many thanks
-Puppet IAC Team. 
-
-</td>
-      
-  
-  
-  
-      
-        <td>pmcmaw</td>
-      
-  
-  
-  
-      
-        <td>83</td>
+        <td>6</td>
       
   
   
@@ -2691,7 +2691,7 @@ Puppet IAC Team.
   
   
       
-        <td>10</td>
+        <td>11</td>
       
   
   
@@ -2721,7 +2721,7 @@ Puppet IAC Team.
   
   
       
-        <td>6</td>
+        <td>7</td>
       
   
   
@@ -2756,82 +2756,12 @@ Puppet IAC Team.
   
   
   
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-panos/pull/130'>130</a></td>
-  
-  
-  
-      
-        <td>66</td>
-      
-  
-  
-  
-      
-        <td>pmcmaw <span class='label label-primary'>iac</span> <span class='label label-warning'>puppet</span></td>
-      
-  
-  
-  
-      
-        <td>(IAC-1604) Removal of resource_api module usage and deprecation of puppet 5</td>
-      
-  
-  
-  
-      
-        <td>No previous comment other than codecov-io</td>
-      
-  
-  
-  
-      
-        <td></td>
-      
-  
-  
-  
-      
-        <td>66</td>
-      
-  
-  
-  
-      
-        <td>1</td>
-      
-  
-  
-  
-      
-        <td>true</td>
-      
-  
-  
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
-      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-panos'>puppetlabs-panos</a></td>
-  
-  
-  
-      
-  
-  
-  
       <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-panos/pull/127'>127</a></td>
   
   
   
       
-        <td>143</td>
+        <td>144</td>
       
   
   
@@ -2861,7 +2791,7 @@ Puppet IAC Team.
   
   
       
-        <td>125</td>
+        <td>126</td>
       
   
   
@@ -2874,6 +2804,76 @@ Puppet IAC Team.
   
       
         <td>false</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-panos'>puppetlabs-panos</a></td>
+  
+  
+  
+      
+  
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-panos/pull/130'>130</a></td>
+  
+  
+  
+      
+        <td>67</td>
+      
+  
+  
+  
+      
+        <td>pmcmaw <span class='label label-primary'>iac</span> <span class='label label-warning'>puppet</span></td>
+      
+  
+  
+  
+      
+        <td>(IAC-1604) Removal of resource_api module usage and deprecation of puppet 5</td>
+      
+  
+  
+  
+      
+        <td>No previous comment other than codecov-io</td>
+      
+  
+  
+  
+      
+        <td></td>
+      
+  
+  
+  
+      
+        <td>67</td>
+      
+  
+  
+  
+      
+        <td>1</td>
+      
+  
+  
+  
+      
+        <td>true</td>
       
   
   
@@ -2901,7 +2901,7 @@ Puppet IAC Team.
   
   
       
-        <td>69</td>
+        <td>70</td>
       
   
   
@@ -2971,7 +2971,7 @@ Puppet IAC Team.
   
   
       
-        <td>35</td>
+        <td>36</td>
       
   
   
@@ -3003,7 +3003,7 @@ I have [this PR](https://github.com/puppetlabs/puppet/pull/8651) pending.  If an
   
   
       
-        <td>25</td>
+        <td>26</td>
       
   
   
@@ -3043,7 +3043,7 @@ I have [this PR](https://github.com/puppetlabs/puppet/pull/8651) pending.  If an
   
   
       
-        <td>67</td>
+        <td>68</td>
       
   
   
@@ -3080,7 +3080,7 @@ No worries. We have a ticket opened separately for the  failures on centos 8 pla
   
   
       
-        <td>27</td>
+        <td>28</td>
       
   
   
@@ -3120,7 +3120,7 @@ No worries. We have a ticket opened separately for the  failures on centos 8 pla
   
   
       
-        <td>16</td>
+        <td>17</td>
       
   
   
@@ -3165,7 +3165,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>16</td>
+        <td>17</td>
       
   
   
@@ -3205,7 +3205,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>551</td>
+        <td>552</td>
       
   
   
@@ -3235,7 +3235,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>143</td>
+        <td>144</td>
       
   
   
@@ -3275,7 +3275,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>241</td>
+        <td>242</td>
       
   
   
@@ -3307,7 +3307,7 @@ Much appreciated for reporting the problem and with the fix. Will get the fix in
   
   
       
-        <td>13</td>
+        <td>14</td>
       
   
   
@@ -3347,7 +3347,7 @@ Much appreciated for reporting the problem and with the fix. Will get the fix in
   
   
       
-        <td>1</td>
+        <td>2</td>
       
   
   
@@ -3417,7 +3417,7 @@ Much appreciated for reporting the problem and with the fix. Will get the fix in
   
   
       
-        <td>81</td>
+        <td>82</td>
       
   
   
@@ -3487,7 +3487,7 @@ Much appreciated for reporting the problem and with the fix. Will get the fix in
   
   
       
-        <td>48</td>
+        <td>49</td>
       
   
   
@@ -3517,7 +3517,7 @@ Much appreciated for reporting the problem and with the fix. Will get the fix in
   
   
       
-        <td>48</td>
+        <td>49</td>
       
   
   
@@ -3557,7 +3557,7 @@ Much appreciated for reporting the problem and with the fix. Will get the fix in
   
   
       
-        <td>103</td>
+        <td>104</td>
       
   
   
@@ -3627,7 +3627,7 @@ Much appreciated for reporting the problem and with the fix. Will get the fix in
   
   
       
-        <td>12</td>
+        <td>13</td>
       
   
   
@@ -3686,7 +3686,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>12</td>
+        <td>13</td>
       
   
   
@@ -3726,7 +3726,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>18</td>
+        <td>19</td>
       
   
   
@@ -3782,7 +3782,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>18</td>
+        <td>19</td>
       
   
   
@@ -3822,7 +3822,7 @@ Exact matches are those that we can positively identify via namespace and the de
   
   
       
-        <td>2</td>
+        <td>3</td>
       
   
   
