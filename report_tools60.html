@@ -271,111 +271,6 @@ ga('set', 'anonymizeIp', true);
   
 
   
-      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet/pull/821'>821</a></td>
-  
-  
-  
-
-  
-      
-        <td>126</td>
-      
-  
-  
-  
-
-  
-      
-        <td>ekohl <span class='badge badge-secondary'>vox</span></td>
-      
-  
-  
-  
-
-  
-      
-        <td>Add a transitive test property</td>
-      
-  
-  
-  
-  <td>
-  <div class="content hideContent">
-     It is my impression that it relies on some resource triggering the notify. So if you have:
-```puppet
-Class['A'] ~> Class['B'] ~> Class['C']
-```
-
-Then it works if there's a resource inside `Class['B']` that triggers a refresh. However, we've seen the edge case where it wasn't. Perhaps classes also behave different than resources.
-</div>
- <div class="show-more">
-        <a href="#">Show more</a>
-    </div></td>
-
-
-  
-      
-  
-  
-  
-
-  
-      
-        <td>ekohl</td>
-      
-  
-  
-  
-
-  
-      
-        <td>70</td>
-      
-  
-  
-  
-
-  
-      
-        <td>4</td>
-      
-  
-  
-  
-
-  
-      
-        <td>true</td>
-      
-  
-  
-  
-
-  
-      
-        <td>false</td>
-      
-  
-  
-  </tr>
-
-  <tr>
-  
-  
-
-  
-      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet'>rspec-puppet</a></td>
-  
-  
-  
-
-  
-      
-  
-  
-  
-
-  
       <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet/pull/555'>555</a></td>
   
   
@@ -438,6 +333,111 @@ Then it works if there's a resource inside `Class['B']` that triggers a refresh.
   
       
         <td>5</td>
+      
+  
+  
+  
+
+  
+      
+        <td>true</td>
+      
+  
+  
+  
+
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet'>rspec-puppet</a></td>
+  
+  
+  
+
+  
+      
+  
+  
+  
+
+  
+      <td><a target ="_blank" href='https://github.com/rodjek/rspec-puppet/pull/821'>821</a></td>
+  
+  
+  
+
+  
+      
+        <td>127</td>
+      
+  
+  
+  
+
+  
+      
+        <td>ekohl <span class='badge badge-secondary'>vox</span></td>
+      
+  
+  
+  
+
+  
+      
+        <td>Add a transitive test property</td>
+      
+  
+  
+  
+  <td>
+  <div class="content hideContent">
+     It is my impression that it relies on some resource triggering the notify. So if you have:
+```puppet
+Class['A'] ~> Class['B'] ~> Class['C']
+```
+
+Then it works if there's a resource inside `Class['B']` that triggers a refresh. However, we've seen the edge case where it wasn't. Perhaps classes also behave different than resources.
+</div>
+ <div class="show-more">
+        <a href="#">Show more</a>
+    </div></td>
+
+
+  
+      
+  
+  
+  
+
+  
+      
+        <td>ekohl</td>
+      
+  
+  
+  
+
+  
+      
+        <td>70</td>
+      
+  
+  
+  
+
+  
+      
+        <td>4</td>
       
   
   
