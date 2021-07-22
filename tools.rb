@@ -28,10 +28,12 @@ util = OctokitUtils.new(options[:oauth])
 
 open_prs = []
 uri = URI.parse(options[:url])
+puts uri
 response = Net::HTTP.get_response(uri)
 output = response.body.gsub(/\n/, '')
-output.gsub!(/output\".+?(?=previous)/, '')
+output.gsub!(/output".+?(?=previous)/, '')
 parsed = JSON.parse(output)
+
 
 def does_array_have_pr(array, pr_number)
   found = false
@@ -42,62 +44,64 @@ def does_array_have_pr(array, pr_number)
 end
 
 parsed.each do |_k, v|
-  puts "Getting data from Github API for #{v['github']}"
-  util.check_limit_api()
-  pr_information_cache = util.fetch_async((v['github']).to_s)
+  if v['github'] != 'puppetlabs/puppet-approved'
+    puts "Getting data from Github API for #{v['github']}"
+    util.check_limit_api
+    pr_information_cache = util.fetch_async((v['github']).to_s)
 
-  # no comment from a puppet employee
-  puppet_uncommented_pulls = util.fetch_pull_requests_with_no_puppet_personnel_comments(pr_information_cache)
-  # last comment mentions a puppet person
-  mentioned_pulls = util.fetch_pull_requests_mention_member(pr_information_cache)
+    # no comment from a puppet employee
+    puppet_uncommented_pulls = util.fetch_pull_requests_with_no_puppet_personnel_comments(pr_information_cache)
+    # last comment mentions a puppet person
+    mentioned_pulls = util.fetch_pull_requests_mention_member(pr_information_cache)
 
-  # loop through open pr's and create a row that has all the pertinant info
-  pr_information_cache.each do |pr|
-    sleep(2)
-      if pr[:pull][:draft] == false
-        row = {}
-        row[:tool] = v['title']
-        row[:address] = "https://github.com/#{v['github']}"
-        row[:pr] = pr[:pull].number
-        row[:age] = ((Time.now - pr[:pull].created_at) / 60 / 60 / 24).round
-        row[:owner] = pr[:pull].user.login
-        row[:owner] += " <span class='label label-primary'>iac</span>" if util.iac_member?(pr[:pull].user.login)
-        row[:owner] += " <span class='label label-warning'>puppet</span>" if util.puppet_member?(pr[:pull].user.login)
-        row[:owner] += " <span class='badge badge-secondary'>vox</span>" if util.voxpupuli_member?(pr[:pull].user.login)
-        row[:title] = pr[:pull].title
+    # loop through open pr's and create a row that has all the pertinant info
+    pr_information_cache.each do |pr|
+      sleep(2)
+      next unless pr[:pull][:draft] == false
 
-        if !pr[:issue_comments].empty?
+      row = {}
+      row[:tool] = v['title']
+      row[:address] = "https://github.com/#{v['github']}"
+      row[:pr] = pr[:pull].number
+      row[:age] = ((Time.now - pr[:pull].created_at) / 60 / 60 / 24).round
+      row[:owner] = pr[:pull].user.login
+      row[:owner] += " <span class='label label-primary'>iac</span>" if util.iac_member?(pr[:pull].user.login)
+      row[:owner] += " <span class='label label-warning'>puppet</span>" if util.puppet_member?(pr[:pull].user.login)
+      row[:owner] += " <span class='badge badge-secondary'>vox</span>" if util.voxpupuli_member?(pr[:pull].user.login)
+      row[:title] = pr[:pull].title
 
-          if pr[:issue_comments].last.user.login =~ /\Acodecov/
-            begin
-              row[:last_comment] = pr[:issue_comments].body(-2).gsub(%r{<\/?[^>]*>}, '')
-            rescue StandardError
-              row[:last_comment] = 'No previous comment other than codecov-io'
-              row[:by] = ''
-            end
+      if !pr[:issue_comments].empty?
 
-          else
-            row[:last_comment] = pr[:issue_comments].last.body.gsub(%r{<\/?[^>]*>}, '')
-            row[:by] = pr[:issue_comments].last.user.login
-
+        if pr[:issue_comments].last.user.login =~ /\Acodecov/
+          begin
+            row[:last_comment] = pr[:issue_comments].body(-2).gsub(%r{</?[^>]*>}, '')
+          rescue StandardError
+            row[:last_comment] = 'No previous comment other than codecov-io'
+            row[:by] = ''
           end
-          row[:age_comment] = ((Time.now - pr[:issue_comments].last.updated_at) / 60 / 60 / 24).round
+
         else
-          row[:last_comment] = '0 comments'
-          row[:by] = ''
-          row[:age_comment] = 0
+          row[:last_comment] = pr[:issue_comments].last.body.gsub(%r{</?[^>]*>}, '')
+          row[:by] = pr[:issue_comments].last.user.login
+
         end
-        row[:num_comments] = pr[:issue_comments].size
-
-        # find prs not commented by puppet
-        row[:no_comment_from_puppet] = does_array_have_pr(puppet_uncommented_pulls, pr[:pull].number)
-        # last comment mentions puppet member
-        row[:last_comment_mentions_puppet] = does_array_have_pr(mentioned_pulls, pr[:pull].number)
-
-        open_prs.push(row)
+        row[:age_comment] = ((Time.now - pr[:issue_comments].last.updated_at) / 60 / 60 / 24).round
+      else
+        row[:last_comment] = '0 comments'
+        row[:by] = ''
+        row[:age_comment] = 0
       end
+      row[:num_comments] = pr[:issue_comments].size
+
+      # find prs not commented by puppet
+      row[:no_comment_from_puppet] = does_array_have_pr(puppet_uncommented_pulls, pr[:pull].number)
+      # last comment mentions puppet member
+      row[:last_comment_mentions_puppet] = does_array_have_pr(mentioned_pulls, pr[:pull].number)
+
+      open_prs.push(row)
+    end
+   end
   end
-end
 
 copy_open_prs = []
 copy_open_prs = open_prs
