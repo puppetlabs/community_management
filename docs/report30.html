@@ -191,6 +191,260 @@ ga('set', 'anonymizeIp', true);
   <tr>
   
   
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache'>puppetlabs-apache</a></td>
+  
+  
+  
+      
+  
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-apache/pull/2160'>2160</a></td>
+  
+  
+  
+      
+        <td>31</td>
+      
+  
+  
+  
+      
+        <td>sircubbi</td>
+      
+  
+  
+  
+      
+        <td>Improve/silence warning from pull-request #2154</td>
+      
+  
+  
+  
+      
+        <td>[apache::vhost](https://github.com/puppetlabs/puppetlabs-apache/blob/6cfdfcc82aa9e12eaba814c3d1736afbf133a4c1/manifests/vhost.pp) is a _type_
+----------------------------------
+
+
+
+  Breaking changes to this file WILL impact these 128 modules (exact match):
+
+* [nwolfe-loadtest](https://forge.puppet.com/nwolfe/loadtest)
+* [kritz-vagrantlamp](https://github.com/kritznl/vagrantlamp)
+* [garethr-wackopicko](https://github.com/garethr/garethr-wackopicko.git)
+* [crayfishx-puppetdb_rundeck](http://github.com/crayfishx/puppetdb2-rundeck)
+* [Firebladee-moodle](https://github.com/Firebladee/moodle.git)
+* [puppetlabs-dashboard](https://github.com/puppetlabs/puppetlabs-dashboard.git)
+* [lightoze-bacula](https://github.com/lightoze/puppet-bacula.git)
+* [glarizza-profiles](https://github.com/glarizza/puppet-profiles)
+* [binford2k-drupal](https://github.com/binford2k/binford2k-drupal)
+* [thomasvandoren-pypi](https://forge.puppet.com/thomasvandoren/pypi)
+* [fsalum-dashboard](https://github.com/fsalum/puppetlabs-dashboard.git)
+* [openstackci-dashboard](https://github.com/openstack-ci/puppet-dashboard.git)
+* [xdrum-puppet](https://github.com/x-drum/puppet-puppet)
+* [boyand-graphite](https://github.com/boyand/puppet-graphite)
+* [cnacorrea-puppet](https://forge.puppet.com/cnacorrea/puppet)
+* [thejandroman-grafana](https://github.com/thejandroman/puppet-grafana)
+* [natewalck-munki_appliance](https://forge.puppet.com/natewalck/munki_appliance)
+* [danieldreier-puppet_installer](https://github.com/danieldreier/puppet_installer)
+* [Aethylred-apaxy](https://github.com/Aethylred/puppet-apaxy)
+* [puppetlabs-awsdemo_profiles](https://github.com/puppetlabs/puppetlabs-awsdemo_profiles)
+* [martialblog-limesurvey](https://github.com/martialblog/puppet-limesurvey)
+* [landcareresearch-pidservice](https://bitbucket.org/landcareresearch/puppet-pidservice.git)
+* [syellapu-myapp](https://google.com)
+* [norisnetwork-ceph](https://github.com/noris-network/puppet-ceph)
+* [pkumarnath-myapp](https://forge.puppet.com/pkumarnath/myapp)
+* [puppetlabs-wordpress_app](https://github.com/puppetlabs/puppetlabs-wordpress_app)
+* [snaragoni-myapp](https://google.com)
+* [kumarmks6-myapp](https://google.com)
+* [spotify-talos](https://github.com/spotify/puppet-talos)
+* [pwaghray-myapp](https://google.com)
+* [sasireddyfm-myapp](https://google.com)
+* [ganeshselva95-myapp](https://google.com)
+* [premkumarp-myapp](https://google.com)
+* [ranjithsimple-myapp](https://forge.puppet.com/ranjithsimple/myapp)
+* [tejoyasha-myapp](http://git.soma.gitbhub.com/myproject.git)
+* [gardouille-xymon](https://git.101010.fr/puppet/xymon)
+* [vinish098-myapp](https://google.com)
+* [jgazeley-speedtest](https://github.com/djjudas21/puppet-speedtest)
+* [garystafford-apache_example_config](https://github.com/garystafford/garystafford-apache_example_config)
+* [glarizza-osx_management](http://forge.puppetlabs.com/glarizza/osx_management)
+* [arden-local_rpm_repo](https://gitlab.com/arden-puppet/arden-local_rpm_repo)
+* [hgkamath-owncloud](https://github.com/hgkamath/puppet-owncloud)
+* [gajdaw-django_app](https://github.com/puppet-by-examples/puppet-django_app)
+* [garethr-graphite](https://forge.puppet.com/garethr/graphite)
+* [brucem-ezpublish](https://github.com/brucem/puppet-ezpublish.git)
+* [thoherr-railsapp](https://github.com/42ways/puppet-railsapp.git)
+* [southernhill-phpldapadmin](https://github.com/southernhill/puppet-phpldapadmin.git)
+* [rjbalest-praxis](https://github.com/rjbalest/praxis.git)
+* [gene1wood-ipquery](https://github.com/mozilla/security/tree/master/operations/ipquery)
+* [gajdaw-phpmyadmin](https://github.com/puppet-by-examples/puppet-phpmyadmin)
+* [42ways-railsapp](https://github.com/42ways/puppet-railsapp.git)
+* [wyrie-nagiosql](https://bitbucket.org/wyrie/puppet-nagiosql/src)
+* [ploperations-puppet](https://github.com/puppetlabs-operations/puppet-puppet)
+* [ploperations-github](https://github.com/ploperations/ploperations-github.git)
+* [saw-reviewboard](https://forge.puppet.com/saw/reviewboard)
+* [gerardkok-reposado](https://github.com/gerardkok/puppet-reposado.git)
+* [dmcnicks-sympa](https://github.com/dmcnicks/dmcnicks-sympa.git)
+* [leonardothibes-phpmyadmin](https://github.com/leonardothibes/puppet-phpmyadmin.git)
+* [Aethylred-puppetdashboard](https://github.com/Aethylred/puppet-puppetdashboard)
+* [cirrax-autoconfigmail](https://github.com/cirrax/puppet-autoconfigmail)
+* [pinguinag-reprepro](https://github.com/ag-pinguin/pinguinag-reprepro)
+* [aimonb-nexusis_gerrit](https://forge.puppet.com/aimonb/nexusis_gerrit)
+* [rendhalver-icinga](https://forge.puppet.com/rendhalver/icinga)
+* [stephenrjohnson-puppet](https://github.com/stephenrjohnson/puppetlabs-puppet.git)
+* [katello-crane](https://github.com/Katello/puppet-crane.git)
+* [covermymeds-sentry](https://github.com/covermymeds/puppet-sentry)
+* [devika-myapp](https://google.com)
+* [zordrak-puppet](https://github.com/zordrak/puppet-puppet)
+* [ghoneycutt-yum](https://github.com/ghoneycutt/puppet-module-yum.git)
+* [johanek-redmine](https://github.com/johanek/johanek-redmine)
+* [abstractit-puppet](https://github.com/abstractitptyltd/abstractit-puppet)
+* [openstack-ceph](https://github.com/openstack/puppet-ceph.git)
+* [zivtech-drupal_php](https://github.com/zivtech/puppet-drupal-php.git)
+* [cristifalcas-kibana](https://github.com/cristifalcas/puppet-kibana.git)
+* [puppet-smokeping](https://github.com/voxpupuli/puppet-smokeping.git)
+* [objectiflibre-puppet](https://github.com/ObjectifLibre/puppet-puppet.git)
+* [SchnWalter-happydev](https://github.com/devgateway/happy-deployer/tree/master/puppet/modules/happydev)
+* [openstack-ironic](https://opendev.org/openstack/puppet-ironic.git)
+* [openstack-openstacklib](https://opendev.org/openstack/puppet-openstacklib.git)
+* [abstractit-icinga](https://github.com/abstractitptyltd/abstractit-icinga)
+* [katello-foreman_proxy_content](https://github.com/theforeman/puppet-foreman_proxy_content.git)
+* [camlow325-grafanadash](https://github.com/camlow325/puppet-grafanadash)
+* [thejandroman-kibana3](https://github.com/thejandroman/puppet-kibana3)
+* [eshamow-simpleid](https://github.com/eshamow/eshamow-simpleid)
+* [mricon-bugzilla](https://github.com/mricon/puppet-bugzilla)
+* [fheinle-webserver](https://github.com/fheinle/krb-webserver.git)
+* [monkygames-beansbooks](https://bitbucket.org/monkygames/puppet-beansbooks.git)
+* [thexa4-secrets_server](https://github.com/thexa4/puppet-secret_server)
+* [monkygames-landscape](https://bitbucket.org/monkygames/puppet-landscape.git)
+* [eschiller-trac](https://www.github.com/eschiller/puppet-trac)
+* [bp85-mirror_repos](https://github.com/bp85/puppet-mirror_repos.git)
+* [mtsinc1-trac](https://www.github.com/mtsinc1/puppet-trac)
+* [martasd-mediawiki](https://github.com/martasd/puppet-mediawiki.git)
+* [jgazeley-nagios](https://github.com/djjudas21/puppet-nagios)
+* [sgnl05-racktables](https://github.com/sgnl05/sgnl05-racktables.git)
+* [hexmode-mediawiki](https://github.com/hexmode/puppet-mediawiki.git)
+* [leonardothibes-usvn](https://github.com/leonardothibes/puppet-usvn.git)
+* [benjaminrobertson-observium](https://github.com/benjamin-robertson/observium)
+* [marcdeop-ratticdb](https://github.com/marcdeop/ratticdb)
+* [cirrax-roundcube](https://github.com/cirrax/puppet-roundcube)
+* [urgi-galaxy_roles_profiles](https://github.com/puppet-galaxy/galaxy-roles-profiles)
+* [puppetlabs-mrepo](https://github.com/puppetlabs/puppetlabs-mrepo.git)
+* [seteam-role](https://github.com/puppetlabs-seteam/puppet-module-role.git)
+* [cirrax-postfixadmin](https://github.com/cirrax/puppet-postfixadmin)
+* [datacentred-nfsen](https://github.com/datacentred/puppet-nfsen)
+* [jlondon-phpmyadmin](http://github.com/justicel/puppet-phpmyadmin.git)
+* [pltraining-classroom_legacy](https://github.com/puppetlabs/pltraining-classroom_legacy)
+* [aimonb-nexusis_mediawiki](https://github.com/NexusIS/puppet-mediawiki.git)
+* [gajdaw-symfony](https://github.com/puppet-by-examples/puppet-symfony)
+* [katello-capsule](https://github.com/Katello/puppet-capsule.git)
+* [theforeman-pulpcore](https://github.com/theforeman/puppet-pulpcore)
+* [puppet-mrepo](https://github.com/voxpupuli/puppet-mrepo)
+* [stackforge-keystone](https://github.com/openstack/puppet-keystone.git)
+* [puppet-zabbix](https://github.com/voxpupuli/puppet-zabbix.git)
+* [theforeman-foreman](https://github.com/theforeman/puppet-foreman)
+* [landcareresearch-ckan](https://bitbucket.org/landcareresearch/puppet-ckan)
+* [wdijkerman-zabbix](https://github.com/dj-wasabi/puppet-zabbix.git)
+* [abiquo-abiquo](https://github.com/chirauki/abiquo-abiquo.git)
+* [nnutter-testdb](https://github.com/genome/nnutter-testdb)
+* [fancyolaya-dokuwiki](https://github.com/mattiasgiese/puppet-dokuwiki)
+* [zyronix-dokuwiki](https://github.com/zyronix/puppet-dokuwiki)
+* [shoekstra-owncloud](https://github.com/shoekstra/puppet-owncloud.git)
+* [hetzner-roundcube](https://github.com/hetznerZA/hetzner-roundcube.git)
+* [geoffwilliams-r_profile](https://github.com/GeoffWilliams/r_profile)
+* [Aethylred-gitlab](https://github.com/Aethylred/puppet-gitlab)
+* [katello-pulp](https://github.com/theforeman/puppet-pulp.git)
+* [stesie-gluon](https://github.com/ffansbach/gluon-puppet)
+* [icann-webapp](https://github.com/icann-dns/puppet-webapp)
+
+
+
+  Breaking changes to this file MAY impact these 34 modules (near match):
+
+* [grahamgilbert-crypt](https://github.com/grahamgilbert/puppet-crypt)
+* [Azcender-balancer](https://github.com/azcender/balancer)
+* [jbussdieker-graphite_web](http://github.com/jbussdieker/puppet-graphite_web)
+* [nwaller-mailman](https://github.com/nicwaller/puppet-mailman)
+* [hunner-gitolite](https://github.com/hunner/puppet-gitolite)
+* [tedivm-hieratic](https://github.com/tedivm/puppet-hieratic)
+* [covermymeds-ruby](https://github.com/covermymeds/puppet-ruby)
+* [spotify-puppetexplorer](https://github.com/spotify/puppet-puppetexplorer.git)
+* [alexggolovin-opencart](https://github.com/alexggolovin/alexggolovin-opencart)
+* [opuscodium-taiga](https://github.com/opus-codium/puppet-taiga)
+* [Lavaburn-cabot](https://github.com/Lavaburn/puppet_cabot.git)
+* [example42-wordpress](https://github.com/example42/puppet-wordpress)
+* [camptocamp-catalog_diff](https://github.com/camptocamp/puppet-catalog-diff)
+* [nibalizer-puppetboard](https://github.com/nibalizer/puppet-module-puppetboard.git)
+* [evenup-graphite](https://forge.puppet.com/evenup/graphite)
+* [example42-kibana](https://github.com/example42/puppet-kibana)
+* [puppet-puppetboard](https://github.com/voxpupuli/puppet-puppetboard.git)
+* [puppet-php](https://github.com/voxpupuli/puppet-php)
+* [echoes-wrappers](https://github.com/echoes-tech/puppet-wrappers)
+* [soli-wrappers](https://github.com/solution-libre/puppet-wrappers)
+* [example42-foreman](https://github.com/example42/puppet-foreman)
+* [example42-graylog2](https://github.com/example42/puppet-graylog2)
+* [example42-puppet](https://github.com/example42/puppet-puppet)
+* [example42-tomcat](https://github.com/example42/puppet-tomcat)
+* [jcalles-php](https://github.com/mayflower/puppet-php)
+* [mayflower-php](https://github.com/mayflower/puppet-php)
+* [openstack-tripleo](https://github.com/openstack/puppet-tripleo.git)
+* [gajdaw-php5](https://github.com/puppet-by-examples/puppet-php5)
+* [samuelson-dockeragent](https://github.com/samuelson/samuelson-dockeragent)
+* [pieterdp-hx_website](https://github.com/pieterdp/hx_website)
+* [puppetfinland-librenms](https://github.com/Puppet-Finland/puppet-librenms.git)
+* [pltraining-dockeragent](https://github.com/puppetlabs/pltraining-dockeragent)
+* [rspiak-racktables](https://github.com/sgnl05/sgnl05-racktables)
+* [zyronix-ipsets](https://github.com/zyronix/puppet-ipsets)
+
+
+
+#### This module is declared in 175 of 576 indexed public `Puppetfiles`.
+
+---------------------------------
+
+These results were generated with [Rangefinder](https://github.com/puppetlabs/puppet-community-rangefinder), a tool that helps predict the downstream impact of breaking changes to elements used in Puppet modules. You can run this on the command line to get a full report.
+
+Exact matches are those that we can positively identify via namespace and the declaring modules' metadata. Non-namespaced items, such as Puppet 3.x functions, will always be reported as near matches only.
+</td>
+      
+  
+  
+  
+      
+        <td>puppet-community-rangefinder[bot]</td>
+      
+  
+  
+  
+      
+        <td>31</td>
+      
+  
+  
+  
+      
+        <td>2</td>
+      
+  
+  
+  
+      
+        <td>true</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
       <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-helm'>puppetlabs-helm</a></td>
   
   
@@ -204,7 +458,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>218</td>
+        <td>220</td>
       
   
   
@@ -234,13 +488,90 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>37</td>
+        <td>39</td>
       
   
   
   
       
         <td>11</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  
+      
+        <td>false</td>
+      
+  
+  
+  </tr>
+
+  <tr>
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-postgresql'>puppetlabs-postgresql</a></td>
+  
+  
+  
+      
+  
+  
+  
+      <td><a target ="_blank" href='https://github.com/puppetlabs/puppetlabs-postgresql/pull/1274'>1274</a></td>
+  
+  
+  
+      
+        <td>72</td>
+      
+  
+  
+  
+      
+        <td>molivier-fcms</td>
+      
+  
+  
+  
+      
+        <td>Handle db, database_grant and table_grant from class postgresql::server</td>
+      
+  
+  
+  
+      
+        <td>> Hi,
+> 
+> I have signed the CLA. However one test failed, but I'm not sure the changes are responsible.
+> 
+> Regards,
+> Matthieu
+
+No worries. We have a ticket opened separately for the  failures on centos 8 platform. It's not related to the changes from this PR. Thank you.</td>
+      
+  
+  
+  
+      
+        <td>sheenaajay</td>
+      
+  
+  
+  
+      
+        <td>32</td>
+      
+  
+  
+  
+      
+        <td>6</td>
       
   
   
@@ -274,7 +605,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>51</td>
+        <td>53</td>
       
   
   
@@ -304,7 +635,7 @@ ga('set', 'anonymizeIp', true);
   
   
       
-        <td>51</td>
+        <td>53</td>
       
   
   
